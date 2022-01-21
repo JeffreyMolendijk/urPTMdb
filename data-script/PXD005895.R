@@ -31,10 +31,10 @@ GSEABase::toGmt(gs, con = paste(dir, "PXD005895_mm_HMGylation_substrates_signifi
 df <- readxl::read_excel("../data/PXD005895/mmc5.xlsx", sheet = 2, skip = 2)
 
 
-name <- "PXD005895_mm_Glutarylation_substrates"
+name <- "PXD005895_mm_Kglu_substrates"
 description <- "From supplementary table 4, sheet 2"
 genes <- df %>% select(`Gene Symbol`) %>% unlist() %>% unname() %>% strsplit(., ";") %>% unlist() %>% unique
 gs <- GSEABase::GeneSet(setName = name, shortDescription = description, geneIds = genes)
 
-GSEABase::toGmt(gs, con = paste(dir, "PXD005895_mm_Glutarylation_substrates.gmt", sep = ""))
+GSEABase::toGmt(gs, con = paste(dir, "PXD005895_mm_Kglu_substrates.gmt", sep = ""))
 
