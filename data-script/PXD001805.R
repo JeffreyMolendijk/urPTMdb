@@ -11,7 +11,7 @@ df <- readxl::read_excel("../data/PXD001805/proteinGroups.xlsx", skip = 0, na = 
 
 name <- "PXD001805_hs_ISGylation_ISG15_substrates"
 description <- "Ratio pf medium condition over light greater than 1"
-genes <- df %>% filter(`Ratio M/L` > 1) %>% filter(!is.na(`Gene names`)) %>% dplyr::select(`Gene names`) %>% distinct()  %>% unlist() %>% unname()
+genes <- df %>% filter(`Ratio M/L` > 1) %>% filter(!is.na(`Gene names`)) %>% dplyr::select(`Gene names`) %>% distinct()  %>% unlist() %>% unname()  %>% strsplit(., split = ";") %>% unlist %>% unique
 gs <- GSEABase::GeneSet(setName = name, shortDescription = description, geneIds = genes)
 
 GSEABase::toGmt(gs, con = paste(dir, "PXD001805_hs_ISGylation_ISG15_substrates.gmt", sep = ""))

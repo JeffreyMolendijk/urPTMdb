@@ -11,7 +11,7 @@ df <- readxl::read_excel(unzip("../data/PXD003053/10.1074_O115.054429_mcp.O115.0
 
 name <- "PXD003053_hs_AMPylation_substrates_VopS_treatment"
 description <- "AMPylation substrates after bacterial virulence factor Vibrio outer protein S treatment"
-genes <- df[,3] %>% distinct()  %>% unlist() %>% unname()
+genes <- df[,1] %>% distinct()  %>% unlist() %>% unname()
 gs <- GSEABase::GeneSet(setName = name, shortDescription = description, geneIds = genes)
 
 GSEABase::toGmt(gs, con = paste(dir, "PXD003053_hs_AMPylation_substrates_VopS_treatment.gmt", sep = ""))
@@ -24,7 +24,7 @@ df <- readxl::read_excel(unzip("../data/PXD003053/10.1074_O115.054429_mcp.O115.0
 
 name <- "PXD003053_hs_AMPylation_substrates_HYPE_mediated"
 description <- "AMPylation substrates mediated by mutated (E234G) Huntingtin-associated protein E"
-genes <- df[,3] %>% distinct()  %>% unlist() %>% unname()
+genes <- df[,1] %>% distinct()  %>% unlist() %>% unname()
 gs <- GSEABase::GeneSet(setName = name, shortDescription = description, geneIds = genes)
 
 GSEABase::toGmt(gs, con = paste(dir, "PXD003053_hs_AMPylation_substrates_HYPE_mediated.gmt", sep = ""))

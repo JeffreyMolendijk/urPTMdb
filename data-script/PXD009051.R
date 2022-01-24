@@ -11,7 +11,7 @@ df <- readxl::read_excel("../data/PXD009051/pr7b00843_si_003.xlsx", skip = 1)
 
 name <- "PXD009051_hs_UFMylation_UFBP1_substrates"
 description <- "PXD009051_hs_UFMylation_UFBP1_substrates"
-genes <- df %>% filter(`Significant` == "+") %>% dplyr::select(`Gene names`) %>% distinct() %>% unlist() %>% unname()
+genes <- df %>% filter(`Significant` == "+") %>% dplyr::select(`Gene names`) %>% distinct() %>% unlist() %>% unname() %>% strsplit(., split = ";") %>% unlist %>% unique
 gs <- GSEABase::GeneSet(setName = name, shortDescription = description, geneIds = genes)
 
 GSEABase::toGmt(gs, con = paste(dir, "PXD009051_hs_UFMylation_UFBP1_substrates.gmt", sep = ""))

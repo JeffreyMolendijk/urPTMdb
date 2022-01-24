@@ -19,7 +19,7 @@ df <- readxl::read_excel(path = "../data/PXD010634/140172_1_supp_208100_pfjwxp/T
 
 name <- "PXD010634_hs_Lipidation_Myr_substrates"
 description <- "PXD010634_hs_Lipidation_Myr_substrates"
-genes <- df %>% select(`Gene names`) %>% unlist() %>% unname() %>% unique
+genes <- df %>% select(`Gene names`) %>% unlist() %>% unname() %>% strsplit(., split = ";") %>% unlist %>% unique
 gs <- GSEABase::GeneSet(setName = name, shortDescription = description, geneIds = genes)
 
 GSEABase::toGmt(gs, con = paste(dir, "PXD010634_hs_Lipidation_Myr_substrates.gmt", sep = ""))
