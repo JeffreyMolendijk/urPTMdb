@@ -39,7 +39,7 @@ To generate urPTMdb locally, you have to clone this repository, install the requ
 
 <code>install.packages("tidyverse")</code> 
 
-> Run all (Ctrl + Shift + Enter)
+> Open `Novel-PTMs.R` & 'Run all' (Ctrl + Shift + Enter)
 
 
 
